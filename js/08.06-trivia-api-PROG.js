@@ -69,8 +69,6 @@ getTriviaButton.addEventListener('click', () => {
             answerButtons.forEach((button, i) => {
                 button.textContent = `${button.id}. ${choices[i].text}`;
                 button.style.display = 'block';
-                button.style.backgroundColor = 'White';
-
             })
         });
 })
@@ -83,12 +81,12 @@ function evaluateChoice (event) {
     // Figure out if it was the correct answer. If it's correct,
     if (choices[button.id-1].isCorrect) {
         // Make the button green
-        button.style.backgroundColor = 'darkgreen'; 
+        button.classList.add('right-answer'); 
         // Increment the score by +1
         score++;
     } else {
         // Make the button red
-        button.style.backgroundColor = 'darkred'; 
+        button.classList.add('wrong-answer'); 
     }
     // Calculate the average score
     average = (score / tries).toFixed(2);
